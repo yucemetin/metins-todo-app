@@ -6,10 +6,12 @@ const checkBox = document.querySelector(".task");
 const addTask = (event) => {
   event.preventDefault();
   if (inputValue.value === "") {
-    setInterval(() => {
+    document.querySelector(".alert").classList.remove("hidden");
+
+    setTimeout(() => {
       document.querySelector(".alert").classList.add("hidden");
     }, 3000);
-    document.querySelector(".alert").classList.remove("hidden");
+
     return;
   }
   const newTasksLi = document.createElement("li");
