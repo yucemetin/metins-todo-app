@@ -127,3 +127,10 @@ ul{
 .task-text{
     color: white;
 }
+
+
+@media screen and (max-width: 414px){
+   .input-value{
+    max-width: 160px;
+   }
+}
