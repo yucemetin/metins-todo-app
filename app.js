@@ -2,6 +2,7 @@ const addButton = document.querySelector(".add-btn");
 const inputValue = document.querySelector(".input-value");
 const listUl = document.querySelector(".list-tasks");
 const checkBox = document.querySelector(".task");
+const form = document.querySelector(".form-select");
 
 const addTask = (event) => {
   event.preventDefault();
@@ -31,16 +32,26 @@ const addTask = (event) => {
 
   newTaskText.innerText = inputValue.value;
   listUl.appendChild(newTasksLi);
+  
+  if (form.value == "very-important") {
+    newTasksLi.style.backgroundColor = "#dc3545";
+  } else if (form.value == "important") {
+    newTasksLi.style.backgroundColor = "#ffc107";
+  } else if (form.value == "not-important") {
+    newTasksLi.style.backgroundColor = "#28a745";
+  }
 
   const object = {
     task: inputValue.value,
     complete: false,
+    importance: form.value,
   };
 
   saveLocalTodos(object);
 
   inputValue.value = "";
 };
+
 
 const deleteTask = (e) => {
   const item = e.target;
@@ -88,6 +99,17 @@ const getTodos = () => {
       newTasksLi.classList.add("complete");
       newTasksLi.children[1].children[0].checked = true;
     }
+
+    if(todo.importance == "very-important"){
+      newTasksLi.style.backgroundColor = "#dc3545";
+    }
+    else if(todo.importance == "important"){
+      newTasksLi.style.backgroundColor = "#ffc107";
+    }
+    else if(todo.importance == "not-important"){
+      newTasksLi.style.backgroundColor = "#28a745";
+    } 
+    
 
     listUl.appendChild(newTasksLi);
   });

@@ -18,6 +18,12 @@
     <div class="container">
         <div class="input-area">
             <input class="input-value" type="text">
+            <select onchange="changeColor(this)" class="form-select form-select-sm shadow" aria-label="Default select example">
+                <option value="" disabled selected>Importance</option>
+                <option value="very-important">Very Important</option>
+                <option value="important">Important</option>
+                <option value="not-important">Not Important</option>
+              </select>  
             <button class="add-btn">Add</button>
         </div>
         <div class="tasks-area">
@@ -28,7 +34,23 @@
 
 
 
-
+    <script>
+        function changeColor(selectObject) {
+        var value = selectObject.value;  
+        if(value=="very-important"){
+            selectObject.style.backgroundColor = "#dc3545";
+            selectObject.style.color = "#fff";
+        }
+        else if(value=="important"){
+            selectObject.style.backgroundColor = "#ffc107";
+            selectObject.style.color = "#fff";
+        }
+        else if(value=="not-important"){
+            selectObject.style.backgroundColor = "#28a745";
+            selectObject.style.color = "#fff";
+        }
+        }
+    </script>
     <script src="app.js"></script>
 </body>
 </html>
