@@ -32,7 +32,7 @@ const addTask = (event) => {
 
   newTaskText.innerText = inputValue.value;
   listUl.appendChild(newTasksLi);
-  
+
   if (form.value == "very-important") {
     newTasksLi.style.backgroundColor = "#dc3545";
   } else if (form.value == "important") {
@@ -51,7 +51,6 @@ const addTask = (event) => {
 
   inputValue.value = "";
 };
-
 
 const deleteTask = (e) => {
   const item = e.target;
@@ -100,16 +99,13 @@ const getTodos = () => {
       newTasksLi.children[1].children[0].checked = true;
     }
 
-    if(todo.importance == "very-important"){
+    if (todo.importance == "very-important") {
       newTasksLi.style.backgroundColor = "#dc3545";
-    }
-    else if(todo.importance == "important"){
+    } else if (todo.importance == "important") {
       newTasksLi.style.backgroundColor = "#ffc107";
-    }
-    else if(todo.importance == "not-important"){
+    } else if (todo.importance == "not-important") {
       newTasksLi.style.backgroundColor = "#28a745";
-    } 
-    
+    }
 
     listUl.appendChild(newTasksLi);
   });
