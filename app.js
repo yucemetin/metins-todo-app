@@ -6,7 +6,7 @@ const form = document.querySelector(".form-select");
 
 const addTask = (event) => {
   event.preventDefault();
-  if (inputValue.value === "") {
+  if (inputValue.value === "" || form.value === "importance") {
     document.querySelector(".alert").classList.remove("hidden");
 
     setTimeout(() => {
@@ -15,6 +15,7 @@ const addTask = (event) => {
 
     return;
   }
+
   const newTasksLi = document.createElement("li");
 
   const newTaskText = document.createElement("p");
@@ -120,7 +121,6 @@ const removeLocalTodos = (todo) => {
   }
   const todoIndex = todo.children[0].innerText;
   const index = todos.findIndex((x) => x.task === todoIndex);
-  console.log(index);
   todos.splice(index, 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 };
